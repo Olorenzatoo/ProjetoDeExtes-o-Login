@@ -1,0 +1,430 @@
+/*=============== GOOGLE FONTS ===============*/
+/* Importa a fonte Poppins do Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+/* Define as configurações gerais do corpo da página */
+body {
+   /* Define um fundo com efeito de gradiente radial */
+   background:
+      radial-gradient(
+         ellipse at 25% 25%,
+         #a64cff 0%,
+         #5b00e6 25%,
+         #2a1650 55%,
+         #241642 100%
+      );
+
+   /* Faz o body ocupar no mínimo toda a altura da tela */
+   min-height: 100vh;
+}
+
+/* Remove o fundo branco do preenchimento automático do navegador */
+.login__input:-webkit-autofill,
+.login__input:-webkit-autofill:hover, 
+.login__input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--white-color);
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Remove o ícone nativo de revelar senha do navegador Edge/IE */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+/*=============== VARIÁVEIS CSS ===============*/
+/* Cria variáveis que podem ser reutilizadas em todo o CSS */
+:root {
+  /* Define a cor branca */
+  --white-color: hsl(0, 0%, 100%);
+
+  /* Define a cor preta */
+  --black-color: hsl(0, 0%, 0%);
+
+  /* Define a fonte principal utilizada na página */
+  --body-font: "Poppins", sans-serif;
+
+  /* Define o tamanho padrão dos títulos */
+  --h1-font-size: 1.75rem;
+
+  /* Define o tamanho padrão dos textos */
+  --normal-font-size: 1rem;
+
+  /* Define o tamanho dos textos menores */
+  --small-font-size: .813rem;
+
+  /* Define o peso médio da fonte */
+  --font-medium: 500;
+}
+
+/*=============== BASE ===============*/
+/* Define configurações básicas para todos os elementos */
+* {
+  /* Faz padding e border serem incluídos no tamanho do elemento */
+  box-sizing: border-box;
+
+  /* Remove o padding padrão */
+  padding: 0;
+
+  /* Remove a margem padrão */
+  margin: 0;
+}
+
+/* Define fonte e tamanho padrão para esses elementos */
+body,
+input,
+button {
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+}
+
+/* Define a cor padrão dos textos */
+body {
+  color: var(--white-color);
+}
+
+/* Remove bordas e contornos padrão dos elementos */
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+/* Remove o sublinhado padrão dos links */
+a {
+  text-decoration: none;
+}
+
+/* Faz com que as imagens se adaptem ao tamanho disponível */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== LOGIN ===============*/
+/* Define a área principal da tela de login */
+.login {
+  /* Permite posicionar elementos dentro da área */
+  position: relative;
+
+  /* Faz a área ocupar toda a altura da tela */
+  height: 100vh;
+
+  /* Utiliza o sistema Grid para organizar os elementos */
+  display: grid;
+
+  /* Alinha os elementos verticalmente */
+  align-items: center;
+
+  /* Adiciona espaçamento nas laterais */
+  padding: 1rem; /* Adicionado espaçamento para dispositivos móveis */
+  
+}
+
+/* Define as configurações da imagem de fundo */
+.login__img {
+  /* Permite posicionar a imagem livremente */
+  position: absolute;
+
+  /* Define a posição inicial da imagem */
+  top: 0;
+  left: 0;
+
+  /* Faz a imagem ocupar toda a largura */
+  width: 100%;
+
+  /* Faz a imagem ocupar toda a altura */
+  height: 100%;
+
+  /* Faz a imagem cobrir toda a área */
+  object-fit: cover; /* Ensures the image covers the area */
+
+  /* Define o posicionamento da imagem */
+  object-position: center; /* Center the image */
+
+  /* Coloca a imagem atrás dos outros elementos */
+  z-index: -1; /* Ensure it's behind the form */
+}
+
+
+
+/* Define a aparência do formulário */
+.login__form {
+  /* Permite controlar a posição do formulário */
+  position: relative;
+
+  /* Define a cor de fundo do formulário */
+  background-color: (0, 0%, 10%, 0.8); /* Mantém a cor de fundo */
+
+  /* Define a borda branca ao redor do formulário */
+  border: 2px solid var(--white-color);
+
+  /* Centraliza o formulário horizontalmente */
+  margin: 0 auto; /* Center form on mobile */
+
+  /* Define o espaçamento interno do formulário */
+  padding: 2.5rem 1.5rem;
+
+  /* Arredonda os cantos do formulário */
+  border-radius: 1rem;
+
+  /* Aplica um efeito de desfoque no fundo */
+  backdrop-filter: blur(8px);
+
+  /* Limita a largura máxima do formulário */
+  max-width: 90%; /* Responsive width */
+
+  /* Coloca o formulário acima da imagem */
+  z-index: 1; /* Coloca o formulário acima da imagem de fundo */
+}
+
+/* Define a aparência do título */
+.login__title {
+  /* Centraliza o título */
+  text-align: center;
+
+  /* Define o tamanho do título */
+  font-size: var(--h1-font-size);
+
+  /* Define o peso da fonte */
+  font-weight: var(--font-medium);
+
+  /* Define o espaço abaixo do título */
+  margin-bottom: 2rem;
+}
+
+/* Aplica Grid aos elementos de conteúdo e aos campos */
+.login__content, .login__box {
+  display: grid;
+}
+
+/* Define o espaçamento entre os campos */
+.login__content {
+  /* Define o espaço vertical entre os elementos */
+  row-gap: 1.75rem;
+
+  /* Define o espaço abaixo dos campos */
+  margin-bottom: 1.5rem;
+}
+
+/* Define a organização de cada campo */
+.login__box {
+  /* Cria uma coluna para o ícone e outra para o campo */
+  grid-template-columns: max-content 1fr;
+
+  /* Alinha os elementos verticalmente */
+  align-items: center;
+
+  /* Define o espaço horizontal entre os elementos */
+  column-gap: 0.75rem;
+
+  /* Cria uma linha na parte inferior do campo */
+  border-bottom: 2px solid var(--white-color);
+}
+
+/* Define o tamanho dos ícones */
+.login__icon, .login__eye {
+  font-size: 1.25rem;
+}
+
+/* Define a aparência dos campos de entrada */
+.login__input {
+  /* Faz o campo ocupar toda a largura disponível */
+  width: 100%;
+
+  /* Define o espaçamento vertical do campo */
+  padding-block: 0.8rem;
+
+  /* Remove o fundo padrão do campo */
+  background: none;
+
+  /* Define a cor do texto digitado */
+  color: var(--white-color);
+
+  /* Permite controlar a posição do elemento */
+  position: relative;
+
+  /* Define a ordem do elemento */
+  z-index: 1;
+}
+
+/* Define a área que contém o input */
+.login__box-input {
+  /* Permite posicionar elementos dentro dessa área */
+  position: relative;
+}
+
+/* Define a aparência das labels */
+.login__label {
+  /* Permite posicionar a label de forma independente */
+  position: absolute;
+
+  /* Define a posição horizontal */
+  left: 0;
+
+  /* Define a posição vertical inicial */
+  top: 13px;
+
+  /* Define o peso da fonte */
+  font-weight: var(--font-medium);
+
+  /* Cria uma transição suave para posição e tamanho */
+  transition: top 0.3s, font-size 0.3s;
+}
+
+/* Define a posição do ícone de mostrar senha */
+.login__eye {
+  /* Permite posicionar o ícone */
+  position: absolute;
+
+  /* Posiciona o ícone no lado direito */
+  right: 0;
+
+  /* Define a posição vertical */
+  top: 18px;
+
+  /* Mantém o ícone acima dos outros elementos */
+  z-index: 10;
+
+  /* Altera o cursor para indicar que é clicável */
+  cursor: pointer;
+}
+
+/* Adiciona espaço no lado direito do segundo campo */
+.login__box:nth-child(2) input {
+  padding-right: 1.8rem;
+}
+
+/* Organiza os elementos de verificação */
+.login__check, .login__check-group {
+  /* Utiliza Flexbox */
+  display: flex;
+
+  /* Alinha os elementos verticalmente */
+  align-items: center;
+
+  /* Distribui os elementos horizontalmente */
+  justify-content: space-between;
+}
+
+/* Define o espaço abaixo da área de verificação */
+.login__check {
+  margin-bottom: 1.5rem;
+}
+
+/* Define o tamanho dos textos menores */
+.login__check-label, .login__forgot, .login__register {
+  font-size: var(--small-font-size);
+}
+
+/* Define o espaço entre os elementos do grupo */
+.login__check-group {
+  column-gap: 0.5rem;
+}
+
+/* Define o tamanho do checkbox */
+.login__check-input {
+  width: 16px;
+  height: 16px;
+}
+
+/* Define a cor do link "Esqueceu a Senha?" */
+.login__forgot {
+  color: var(--white-color);
+}
+
+/* Adiciona sublinhado ao passar o mouse sobre o link */
+.login__forgot:hover {
+  text-decoration: underline;
+}
+
+/* Define a aparência do botão de login */
+.login__button {
+  /* Faz o botão ocupar toda a largura disponível */
+  width: 100%;
+
+  /* Define o espaçamento interno do botão */
+  padding: 1rem;
+
+  /* Arredonda os cantos do botão */
+  border-radius: 0.5rem;
+
+  /* Define a cor de fundo do botão */
+  background-color: var(--white-color);
+
+  /* Define o peso da fonte */
+  font-weight: var(--font-medium);
+
+  /* Mostra o cursor de clique */
+  cursor: pointer;
+
+  /* Define o espaço abaixo do botão */
+  margin-bottom: 2rem;
+}
+
+/* Centraliza a área de registro */
+.login__register {
+  text-align: center;
+}
+
+/* Define a aparência do link de registro */
+.login__register a {
+  /* Define a cor do link */
+  color: var(--white-color);
+
+  /* Define o peso da fonte */
+  font-weight: var(--font-medium);
+}
+
+/* Adiciona sublinhado ao passar o mouse no link */
+.login__register a:hover {
+  text-decoration: underline;
+}
+
+
+/* Move a label para cima quando o input está selecionado */
+.login__input:focus + .login__label {
+  /* Move a label para cima */
+  top: -12px;
+
+  /* Diminui o tamanho da label */
+  font-size: var(--small-font-size);
+}
+
+
+/* Mantém a label acima quando o campo já possui algum conteúdo */
+.login__input:not(:placeholder-shown).login__input:not(:focus) + .login__label {
+  /* Move a label para cima */
+  top: -12px;
+
+  /* Diminui o tamanho da label */
+  font-size: var(--small-font-size);
+}
+
+/* Para dispositivos médios */
+/* Aplica alterações quando a tela possui pelo menos 576px */
+@media screen and (min-width: 576px) {
+
+  /* Centraliza o conteúdo horizontalmente */
+  .login {
+    justify-content: center;
+  }
+
+  /* Ajusta o tamanho e espaçamento do formulário */
+  .login__form {
+    /* Define uma largura fixa para telas maiores */
+    width: 432px;
+
+    /* Aumenta o espaçamento interno */
+    padding: 4rem 3rem 3.5rem;
+
+    /* Aumenta o arredondamento dos cantos */
+    border-radius: 1.5rem;
+  }
+
+  /* Aumenta o tamanho do título em telas maiores */
+  .login__title {
+    font-size: 2rem;
+  }
+}
